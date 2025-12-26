@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>削除確認</title>
+</head>
+<body>
+    <h2>本当に以下の楽曲を削除しますか？</h2>
+    <p style="color: red;">この操作は取り消せません。</p>
+    <ul>
+        <li><strong>ID:</strong> <%= data.id %></li>
+        <li><strong>曲名:</strong> <%= data.title %></li>
+        <li><strong>アーティスト名:</strong> <%= data.artist %></li>
+    </ul>
+
+    <form action="/song/delete/<%= index %>" method="POST">
+        <input type="submit" value="削除する">
+    </form>
+    <br>
+    <a href="/song/detail/<%= index %>">キャンセルして戻る</a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>レシピ追加</title>
+</head>
+<body>
+    <h2>レシピの追加</h2>
+    <form action="/recipe/create/confirm" method="POST">
+        <input type="text" name="name" required>
+        <label for="name">料理名:</label><br>
+
+        <input type="text" name="genre" required>
+        <label for="genre">ジャンル:</label><br>
+
+        <textarea name="ingredients" rows="5" cols="30"></textarea>
+        <label for="ingredients">材料:</label><br>
+
+        <input type="text" name="url">
+        <label for="url">作り方URL:</label><br>
+        
+        <br>
+        <input type="submit" value="確認画面へ">
+    </form>
+    <br>
+    <a href="/recipe">一覧に戻る</a>
+</body>
+</html>

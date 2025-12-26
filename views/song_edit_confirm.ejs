@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>編集確認</title>
+</head>
+<body>
+    <h2>以下の内容で更新しますか？</h2>
+    <ul>
+        <li><strong>曲名:</strong> <%= data.title %></li>
+        <li><strong>アーティスト名:</strong> <%= data.artist %></li>
+        <li><strong>歌詞:</strong> <%= data.lyrics %></li>
+        <li><strong>URL:</strong> <%= data.url %></li>
+    </ul>
+
+    <form action="/song/update/execute/<%= index %>" method="POST">
+        <input type="hidden" name="title" value="<%= data.title %>">
+        <input type="hidden" name="artist" value="<%= data.artist %>">
+        <input type="hidden" name="lyrics" value="<%= data.lyrics %>">
+        <input type="hidden" name="url" value="<%= data.url %>">
+        <input type="submit" value="更新">
+    </form>
+    <a href="/song/edit/<%= index %>">戻る</a>
+</body>
+</html>

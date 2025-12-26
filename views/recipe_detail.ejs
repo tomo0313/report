@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %>の詳細</title>
+</head>
+<body>
+  <h2><%= data.name %> の詳細</h2>
+  <table>
+    <tr><th style="text-align: left; width: 150px;">項目</th><th style="text-align: left;">データ</th></tr>
+    <tr><td>ID</td><td><%= data.id %></td></tr>
+    <tr><td>料理名</td><td><%= data.name %></td></tr>
+    <tr><td>ジャンル</td><td><%= data.genre %></td></tr>
+    <tr><td>材料</td><td><pre style="font-family: sans-serif;"><%= data.ingredients %></pre></td></tr>
+    <tr><td>作り方URL</td><td><a href="<%= data.url %>" target="_blank"><%= data.url %></a></td></tr>
+  </table>
+  <br>
+  <a href="/recipe/edit/<%= index %>"><button>編集</button></a>
+  <a href="/recipe/delete/confirm/<%= index %>"><button>削除</button></a>
+  <a href="/recipe">一覧に戻る</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>大学一覧</title>
+</head>
+<body>
+  <h2>大学管理システム - 一覧</h2>
+  <table>
+    <tr><th>ID</th><th>大学名</th><th>都道府県</th></tr>
+      <% let index = 0 %>
+      <% for( let row of data ) { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><a href="/university/detail/<%= index %>"><%= row.name %></a></td>
+          <td><%= row.prefecture %></td>
+        </tr>
+        <% index += 1 %>
+      <% } %>
+  </table>
+  <br>
+  <a href="/university/create"><button>追加</button></a>
+</body>
+</html>

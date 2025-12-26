@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>編集確認</title>
+</head>
+<body>
+    <h2>以下の内容で更新しますか？</h2>
+    <ul>
+        <li><strong>大学名:</strong> <%= data.name %></li>
+        <li><strong>都道府県:</strong> <%= data.prefecture %></li>
+        <li><strong>学部名:</strong> <%= data.faculty %></li>
+        <li><strong>URL:</strong> <%= data.url %></li>
+    </ul>
+
+    <form action="/university/update/execute/<%= index %>" method="POST">
+        <input type="hidden" name="name" value="<%= data.name %>">
+        <input type="hidden" name="prefecture" value="<%= data.prefecture %>">
+        <input type="hidden" name="faculty" value="<%= data.faculty %>">
+        <input type="hidden" name="url" value="<%= data.url %>">
+        <input type="submit" value="更新">
+    </form>
+    <a href="/university/edit/<%= index %>">戻る</a>
+</body>
+</html>

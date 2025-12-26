@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.title %>の詳細</title>
+</head>
+<body>
+  <h2><%= data.title %> の詳細</h2>
+  <table>
+    <tr><th style="text-align: left; width: 150px;">項目</th><th style="text-align: left;">データ</th></tr>
+    <tr><td>ID</td><td><%= data.id %></td></tr>
+    <tr><td>曲名</td><td><%= data.title %></td></tr>
+    <tr><td>アーティスト名</td><td><%= data.artist %></td></tr>
+    <tr><td>歌詞</td><td><pre style="font-family: sans-serif;"><%= data.lyrics %></pre></td></tr>
+    <tr><td>URL</td><td><a href="<%= data.url %>" target="_blank"><%= data.url %></a></td></tr>
+  </table>
+  <br>
+  <a href="/song/edit/<%= index %>"><button>編集</button></a>
+  <a href="/song/delete/confirm/<%= index %>"><button>削除</button></a>
+  <a href="/song">一覧に戻る</a>
+</body>
+</html>

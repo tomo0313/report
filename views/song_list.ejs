@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>楽曲一覧</title>
+</head>
+<body>
+  <h2>楽曲管理システム - 一覧</h2>
+  <table>
+    <tr><th>ID</th><th>曲名</th><th>アーティスト名</th></tr>
+      <% let index = 0 %>
+      <% for( let row of data ) { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><a href="/song/detail/<%= index %>"><%= row.title %></a></td>
+          <td><%= row.artist %></td>
+        </tr>
+        <% index += 1 %>
+      <% } %>
+  </table>
+  <br>
+  <a href="/song/create"><button>追加</button></a>
+</body>
+</html>

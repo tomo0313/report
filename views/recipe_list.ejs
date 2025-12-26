@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>レシピ一覧</title>
+</head>
+<body>
+  <h2>レシピ管理システム - 一覧</h2>
+  <table>
+    <tr><th>ID</th><th>料理名</th><th>ジャンル</th></tr>
+      <% let index = 0 %>
+      <% for( let row of data ) { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><a href="/recipe/detail/<%= index %>"><%= row.name %></a></td>
+          <td><%= row.genre %></td>
+        </tr>
+        <% index += 1 %>
+      <% } %>
+  </table>
+  <br>
+  <a href="/recipe/create"><button>追加</button></a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>削除確認</title>
+</head>
+<body>
+    <h2>本当に以下のレシピを削除しますか？</h2>
+    <p style="color: red;">この操作は取り消せません。</p>
+    <ul>
+        <li><strong>ID:</strong> <%= data.id %></li>
+        <li><strong>料理名:</strong> <%= data.name %></li>
+        <li><strong>ジャンル:</strong> <%= data.genre %></li>
+    </ul>
+
+    <form action="/recipe/delete/<%= index %>" method="POST">
+        <input type="submit" value="削除する">
+    </form>
+    <br>
+    <a href="/recipe/detail/<%= index %>">キャンセルして戻る</a>
+</body>
+</html>

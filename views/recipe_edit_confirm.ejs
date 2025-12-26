@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>編集確認</title>
+</head>
+<body>
+    <h2>以下の内容で更新しますか？</h2>
+    <ul>
+        <li><strong>料理名:</strong> <%= data.name %></li>
+        <li><strong>ジャンル:</strong> <%= data.genre %></li>
+        <li><strong>材料:</strong> <%= data.ingredients %></li>
+        <li><strong>作り方URL:</strong> <%= data.url %></li>
+    </ul>
+
+    <form action="/recipe/update/execute/<%= index %>" method="POST">
+        <input type="hidden" name="name" value="<%= data.name %>">
+        <input type="hidden" name="genre" value="<%= data.genre %>">
+        <input type="hidden" name="ingredients" value="<%= data.ingredients %>">
+        <input type="hidden" name="url" value="<%= data.url %>">
+        <input type="submit" value="更新">
+    </form>
+    <a href="/recipe/edit/<%= index %>">戻る</a>
+</body>
+</html>

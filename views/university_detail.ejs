@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %>の詳細</title>
+</head>
+<body>
+  <h2><%= data.name %> の詳細</h2>
+  <table>
+    <tr><th style="text-align: left; width: 150px;">項目</th><th style="text-align: left;">データ</th></tr>
+    <tr><td>ID</td><td><%= data.id %></td></tr>
+    <tr><td>大学名</td><td><%= data.name %></td></tr>
+    <tr><td>都道府県</td><td><%= data.prefecture %></td></tr>
+    <tr><td>学部名</td><td><pre style="font-family: sans-serif;"><%= data.faculty %></pre></td></tr>
+    <tr><td>URL</td><td><a href="<%= data.url %>" target="_blank"><%= data.url %></a></td></tr>
+  </table>
+  <br>
+  <a href="/university/edit/<%= index %>"><button>編集</button></a>
+  <a href="/university/delete/confirm/<%= index %>"><button>削除</button></a>
+  <a href="/university">一覧に戻る</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>削除確認</title>
+</head>
+<body>
+    <h2>本当に以下の大学を削除しますか？</h2>
+    <p style="color: red;">この操作は取り消せません。</p>
+    <ul>
+        <li><strong>ID:</strong> <%= data.id %></li>
+        <li><strong>大学名:</strong> <%= data.name %></li>
+        <li><strong>都道府県:</strong> <%= data.prefecture %></li>
+    </ul>
+
+    <form action="/university/delete/<%= index %>" method="POST">
+        <input type="submit" value="削除する">
+    </form>
+    <br>
+    <a href="/university/detail/<%= index %>">キャンセルして戻る</a>
+</body>
+</html>
