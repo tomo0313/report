@@ -84,8 +84,7 @@ app.post("/keiyo2/update/:number", (req, res) => {
 
 
 
-// --- 楽曲管理システム用データ ---
-// spec.md のデータ構造に基づく初期データ
+//楽曲管理システム
 let songs = [
   { id: 1, title: "FAKE LAND", artist: "FAKE TYPE", lyrics: `Dangerous 素行不良の喧嘩ラップ　びんびんの目ん玉に焼き付ける
 Theme park of FT 着ぐるみの中身はブラックホール要注意
@@ -490,10 +489,7 @@ Awoo Awoo 暴れ回る Upside down
 怒りの刃抜いて　いないいないばあ
 着火絶望のマッチ棒　吼える月の犬畜生`, url: "https://www.youtube.com/watch?v=0sp0A3wWw9Y" },
 ];
-
-// --- 楽曲管理システム用ルーティング ---
-
-// 1. 一覧表示 (Read)
+// 1. 一覧表示
 app.get("/song", (req, res) => {
   res.render('song_list', { data: songs });
 });
@@ -501,12 +497,10 @@ app.get("/song", (req, res) => {
 // 2. 詳細表示
 app.get("/song/detail/:index", (req, res) => {
   const index = req.params.index;
-  // if文削除：配列のデータをそのまま渡す
   res.render('song_detail', { index: index, data: songs[index] });
 });
 
-// 3. 追加機能 (Create)
-// フォーム表示 (HTMLへリダイレクト)
+// 3. 追加機能
 app.get("/song/create", (req, res) => {
   res.render('song_create');
 });
@@ -524,7 +518,6 @@ app.post("/song/create/confirm", (req, res) => {
 
 // 登録実行
 app.post("/song/create/execute", (req, res) => {
-  // ID自動採番（計算のみで分岐なし）
   const maxId = songs.reduce((max, song) => (song.id > max ? song.id : max), 0);
   const newSong = {
     id: maxId + 1,
@@ -537,11 +530,9 @@ app.post("/song/create/execute", (req, res) => {
   res.redirect('/song');
 });
 
-// 4. 編集機能 (Update)
-// フォーム表示
+// 4. 編集機能
 app.get("/song/edit/:index", (req, res) => {
   const index = req.params.index;
-  // if文削除：配列のデータをそのまま渡す
   res.render('song_edit', { index: index, data: songs[index] });
 });
 
@@ -560,7 +551,6 @@ app.post("/song/update/confirm/:index", (req, res) => {
 // 更新実行
 app.post("/song/update/execute/:index", (req, res) => {
   const index = req.params.index;
-  // if文削除：そのまま代入
   songs[index].title = req.body.title;
   songs[index].artist = req.body.artist;
   songs[index].lyrics = req.body.lyrics;
@@ -569,18 +559,15 @@ app.post("/song/update/execute/:index", (req, res) => {
   res.redirect('/song');
 });
 
-// 5. 削除機能 (Delete)
-// 確認画面
+// 5. 削除機能
 app.get("/song/delete/confirm/:index", (req, res) => {
   const index = req.params.index;
-  // if文削除：配列のデータをそのまま渡す
   res.render('song_delete_confirm', { index: index, data: songs[index] });
 });
 
 // 削除実行
 app.post("/song/delete/:index", (req, res) => {
   const index = req.params.index;
-  // 配列から削除するだけ
   songs.splice(index, 1);
   res.redirect('/song');
 });
@@ -635,8 +622,7 @@ app.get("/recipe/detail/:index", (req, res) => {
   res.render('recipe_detail', { index: index, data: recipes[index] });
 });
 
-// 3. 追加機能 (Create)
-// 入力フォーム (HTMLへリダイレクト)
+// 3. 追加機能
 app.get("/recipe/create", (req, res) => {
   res.render('recipe_create');
 });
@@ -666,8 +652,7 @@ app.post("/recipe/create/execute", (req, res) => {
   res.redirect('/recipe');
 });
 
-// 4. 編集機能 (Update)
-// 編集フォーム
+// 4. 編集機能
 app.get("/recipe/edit/:index", (req, res) => {
   const index = req.params.index;
   res.render('recipe_edit', { index: index, data: recipes[index] });
@@ -697,8 +682,7 @@ app.post("/recipe/update/execute/:index", (req, res) => {
   res.redirect('/recipe');
 });
 
-// 5. 削除機能 (Delete)
-// 削除確認
+// 5. 削除機能
 app.get("/recipe/delete/confirm/:index", (req, res) => {
   const index = req.params.index;
   res.render('recipe_delete_confirm', { index: index, data: recipes[index] });
@@ -800,8 +784,7 @@ app.get("/university/detail/:index", (req, res) => {
   res.render('university_detail', { index: index, data: universities[index] });
 });
 
-// 3. 追加機能 (Create)
-// 入力フォーム
+// 3. 追加機能
 app.get("/university/create", (req, res) => {
   res.render('university_create');
 });
@@ -831,8 +814,7 @@ app.post("/university/create/execute", (req, res) => {
   res.redirect('/university');
 });
 
-// 4. 編集機能 (Update)
-// 編集フォーム
+// 4. 編集機能
 app.get("/university/edit/:index", (req, res) => {
   const index = req.params.index;
   res.render('university_edit', { index: index, data: universities[index] });
@@ -862,8 +844,7 @@ app.post("/university/update/execute/:index", (req, res) => {
   res.redirect('/university');
 });
 
-// 5. 削除機能 (Delete)
-// 削除確認
+// 5. 削除機能
 app.get("/university/delete/confirm/:index", (req, res) => {
   const index = req.params.index;
   res.render('university_delete_confirm', { index: index, data: universities[index] });
